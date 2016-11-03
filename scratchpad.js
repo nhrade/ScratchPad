@@ -3,6 +3,24 @@
  * @author N. Hradek
  */
 
+
+
+const bgColorThemes = {
+    'cobalt': "#011e3a",
+    'eclipse': "#ebebeb",
+    'monokai': "#2F3129",
+    'solarized_dark': "#01313f",
+    'vibrant_ink': "#1a1a1a"
+};
+
+const buttonColors = {
+    'cobalt': "rgb(128,145,160)",
+    'eclipse': "rgb(136, 136, 136)",
+    'monokai': "#8F908A",
+    'solarized_dark': "#607B76",
+    'vibrant_ink': "#BEBEBE"
+};
+
 const editor = ace.edit("editor");
 ace.require("ace/ext/language_tools");
 
@@ -10,7 +28,17 @@ ace.require("ace/ext/language_tools");
 
 $('#editor').ready(function () {
     editor.setTheme('ace/theme/cobalt');
+    $('body').css('background-color', bgColorThemes['cobalt']);
     $('#editor').css("fontSize", "15px");
+    $('input.button').css('background-color', buttonColors['cobalt']);
+    $('select').css('background-color', buttonColors['cobalt']);
+    $('.menu-bar').css('border-color', buttonColors['cobalt']);
+
+});
+
+
+$('#file-open-button').click(function() {
+    $('#file-chooser').click();
 });
 
 
@@ -25,7 +53,18 @@ editor.setOptions({
 // change theme when new item selected
 $('#theme-selector').change(
     function () {
-        editor.setTheme('ace/theme/' + $('#theme-selector').val());
+        const currTheme = $('#theme-selector').val();
+        $('select').css('color', 'white');
+        $('input.button').css('color', 'white');
+        editor.setTheme('ace/theme/' + currTheme);
+        $('body').css('background-color', bgColorThemes[currTheme]);
+        $('input.button').css('background-color', buttonColors[currTheme]);
+        $('select').css('background-color', buttonColors[currTheme]);
+        $('.menu-bar').css('border-color', buttonColors[currTheme]);
+        if(currTheme == 'vibrant_ink') {
+            $('select').css('color', 'black');
+            $('input.button').css('color', 'black');
+        }
     }
 );
 
@@ -76,5 +115,14 @@ editor.commands.addCommand({
             function (result, isException) {
 
             });
+    }
+});
+
+
+editor.commands.addCommand({
+    name: 'open-file',
+    bindKey: {win: 'Ctrl-O', mac: 'Command-O'},
+    exec: function (editor) {
+        $('#file-chooser').click();
     }
 });

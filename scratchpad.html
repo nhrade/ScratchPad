@@ -9,29 +9,27 @@
         <script type="text/javascript" src="lib/theme/theme-eclipse.js"></script>
         <script type="text/javascript" src="lib/theme/theme-solarized_dark.js"></script>
         <script type="text/javascript" src="lib/ext-language_tools.js"></script>
+        <script type="text/javascript" src="lib/theme/theme-vibrant_ink.js"></script>
+        <input type="file" id="file-chooser" hidden="true"/>
+        <link rel="stylesheet" href="scratchpad.css"/>
     </head>
 
     <body>
 
-    <style>
-        #editor {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-        }
-    </style>
+    <div class="menu-bar">
+        <select id="theme-selector">
+            <option value="cobalt">Cobalt</option>
+            <option value="monokai">Monokai</option>
+            <option value="eclipse">Eclipse</option>
+            <option value="solarized_dark">Solarized Dark</option>
+            <option value="vibrant_ink">Vibrant Ink</option>
 
+        </select>
 
-    <select id="theme-selector">
-        <option value="cobalt">Cobalt</option>
-        <option value="monokai">Monokai</option>
-        <option value="eclipse">Eclipse</option>
-        <option value="solarized_dark">Solarized Dark</option>
-        <option value="github">Github</option>
+        <input type="button" id="run-button" value="Run" class="button"/>
+        <input type="button" id="file-open-button" value="Open" class="button"/>
+    </div>
 
-    </select>
-    <input type="button" id="run-button" value="Run"/>
-    <input type="file" id="file-chooser" value="Open"/>
     <div id="editor">// Javascript scratchpad v0.0.1</div>
     <script src="scratchpad.js"></script>
     </body>

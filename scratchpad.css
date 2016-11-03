@@ -1,0 +1,57 @@
+
+
+
+
+
+
+input#file-open-button {
+    margin-left: 0px;
+}
+
+input.button {
+    color: white;
+    width: 100px;
+    border: none;
+    padding: 5px 5px;
+    text-align: center;
+    display: inline-block;
+    font-size: 12px;
+}
+
+input.button:hover {
+    filter: brightness(1.2);
+    box-shadow: none;
+}
+
+select {
+    height: 24px;
+    color: white;
+    border: none;
+    display: inline-block;
+}
+
+.menu-bar {
+    width: 100%;
+    border-bottom: inset;
+    border-width: thick;
+    border-color: red;
+    padding-bottom: 5px;
+    margin-bottom: 0px;
+}
+
+input#theme-selector {
+    display: inline-block;
+    border: none;
+}
+
+input#file-chooser {
+    visibility: hidden;
+    width: 0;
+    height: 0;
+}
+
+#editor {
+    position: absolute;
+    width: 97%;
+    height: 92%;
+}
